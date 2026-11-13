@@ -66,9 +66,9 @@
 
     <!-- Footer Sidebar: Nút mở cổng khách hàng & đăng xuất ca -->
     <div class="sidebar-footer">
-      <button class="btn btn-sidebar-action w-100 mb-2 text-start d-flex align-items-center gap-2">
+      <router-link to="/" class="btn btn-sidebar-action w-100 mb-2 text-start d-flex align-items-center gap-2 text-decoration-none">
         <i class="bi bi-globe"></i> Mở Cổng khách hàng
-      </button>
+      </router-link>
       <button class="btn btn-sidebar-danger w-100 text-start d-flex align-items-center gap-2">
         <i class="bi bi-box-arrow-right"></i> Đăng xuất ca trực
       </button>
