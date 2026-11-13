@@ -14,7 +14,7 @@ return new class extends Migration
         //maVaiTro FK, tenDangNhap, matKhauHash, trangThai
         Schema::create('Tai_Khoan', function (Blueprint $table) {
             $table->id();
-            $table->string('tenDangNhap');
+            $table->string('tenDangNhap')->unique();
             $table->string('password');
             $table->string('hash_password')->nullable();
             $table->string('trangThai');
