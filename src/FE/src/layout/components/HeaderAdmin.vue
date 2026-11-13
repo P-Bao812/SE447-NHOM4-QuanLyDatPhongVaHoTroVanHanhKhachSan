@@ -17,10 +17,10 @@
 
     <div class="d-flex align-items-center gap-3">
       <!-- Switch to Guest Portal -->
-      <button class="d-none d-sm-inline-flex align-items-center gap-2 px-3 py-2 rounded-xl btn-guest border-0">
+      <router-link to="/" class="d-none d-sm-inline-flex align-items-center gap-2 px-3 py-2 rounded-xl btn-guest border-0 text-decoration-none">
         <i class="bi bi-globe"></i>
         <span>Cổng khách hàng</span>
-      </button>
+      </router-link>
 
       <!-- Staff Profile Dropdown (Sử dụng cấu trúc click cơ bản hoặc tự binding tùy ý) -->
       <div class="dropdown">
