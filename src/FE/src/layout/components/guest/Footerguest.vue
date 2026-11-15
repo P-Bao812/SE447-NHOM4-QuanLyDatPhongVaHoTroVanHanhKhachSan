@@ -18,11 +18,11 @@
             Hotline: <strong class="text-main-dark fw-semibold">0905 888 999</strong>
           </span>
           <span class="text-secondary-custom d-none d-sm-inline">•</span>
-          <router-link to="/customer"
+          <a href="#"
             class="staff-portal-link d-inline-flex align-items-center gap-1.5 text-decoration-none fw-semibold">
             <i class="bi bi-lock"></i>
             <span>Cổng nhân viên & Quản lý PMS</span>
-          </router-link>
+          </a>
         </div>
       </div>
     </div>
