@@ -52,8 +52,17 @@ const routes = [
     component: () => import('../components/guest/ho_so_ca_nhan.vue'),
     meta: { layout: 'guest' },
   },
+  {
+    path: '/dang-nhap',
+    component: () => import('../components/Dang_Nhap.vue'),
+    meta: { layout: 'guest' },
+  },
+  {
+    path: '/dang-ky',
+    component: () => import('../components/Dang_Ky.vue'),
+    meta: { layout: 'guest' },
+  },
 ]
-
 const router = createRouter({
   history: createWebHistory(),
   routes: routes,
