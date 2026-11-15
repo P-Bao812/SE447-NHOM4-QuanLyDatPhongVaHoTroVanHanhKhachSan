@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Tai_KhoanController;
+use App\Models\Tai_Khoan;
 use App\Models\User;
 
 return [
@@ -42,7 +44,12 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'tai_khoan' => [
+            'driver' => 'session',
+            'provider' => 'tai_khoan',
+        ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -65,6 +72,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', User::class),
+        ],
+        'tai_khoan' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', Tai_Khoan::class),
         ],
 
         // 'users' => [
