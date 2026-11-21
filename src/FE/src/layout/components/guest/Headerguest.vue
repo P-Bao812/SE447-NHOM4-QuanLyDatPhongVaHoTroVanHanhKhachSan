@@ -44,10 +44,11 @@
 
       <!-- Action Buttons (Đăng nhập & Đăng ký) -->
       <div class="d-flex align-items-center gap-2">
-        <button class="btn btn-login d-flex align-items-center gap-2">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Đăng nhập</span>
-        </button>
+        <router-link to="/dang-nhap" class=" router-link nav-tab-item"><button
+            class="btn btn-login d-flex align-items-center gap-2">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span>Đăng nhập</span>
+          </button></router-link>
         <button class="btn btn-register d-flex align-items-center gap-2">
           <i class="bi bi-person-plus"></i>
           <span>Đăng ký</span>
@@ -84,6 +85,10 @@ export default {
   color: #1E5E49;
   border-radius: 12px;
   font-size: 1.25rem;
+}
+
+.router-link {
+  text-decoration: none
 }
 
 /* Navigation Tabs (Áp dụng cho cả router-link) */

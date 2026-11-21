@@ -24,7 +24,9 @@
       </div>
       <!-- Chuyển Tab Đăng nhập / Đăng ký -->
       <div class="tab-switcher">
-        <div class="tab-btn"><router-link to="dang-nhap">Đăng nhập</router-link></div>
+        <router-link to="dang-nhap" class="router-link">
+          <div class="tab-btn">Đăng nhập</div>
+        </router-link>
         <div class="tab-btn active">Đăng ký tài khoản mới</div>
       </div>
       <!-- Form Nhập liệu -->
@@ -38,7 +40,6 @@
           <label>Mật khẩu</label>
           <input type="password" value="1234567890" class="form-input" />
         </div>
-
         <button type="submit" class="submit-btn">
           Đăng nhập
         </button>
@@ -51,7 +52,6 @@
         </a>
       </div>
     </div>
-
   </body>
 </template>
 <script>
@@ -82,6 +82,10 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   border: 1px solid #eceae2;
   box-sizing: border-box;
+}
+
+.router-link {
+  text-decoration: none
 }
 
 /* Header */

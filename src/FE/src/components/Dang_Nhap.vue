@@ -25,7 +25,7 @@
       <!-- Chuyển Tab Đăng nhập / Đăng ký -->
       <div class="tab-switcher">
         <div class="tab-btn active">Đăng nhập</div>
-        <router-link to="/dang-ky">
+        <router-link to="/dang-ky" class="router-link">
           <div class="tab-btn">Đăng ký tài khoản mới</div>
         </router-link>
       </div>
@@ -91,6 +91,10 @@ body {
 .auth-header {
   text-align: center;
   margin-bottom: 24px;
+}
+
+.router-link {
+  text-decoration: none
 }
 
 .logo-box {
