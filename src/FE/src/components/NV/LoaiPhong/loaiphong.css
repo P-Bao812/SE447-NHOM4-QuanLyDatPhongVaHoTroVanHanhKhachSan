@@ -1,0 +1,365 @@
+/* ==========================================================================
+   STYLE QUẢN LÝ LOẠI PHÒNG - AN NHIÊN BOUTIQUE HOTEL
+   ========================================================================== */
+
+:root {
+  --lp-bg-page: #f5f7f6;
+  --lp-text-main: #1f2937;
+  --lp-text-muted: #6b7280;
+  --lp-teal-primary: #0d7065;
+  --lp-teal-hover: #095048;
+  --lp-teal-light: #e6f4f1;
+  --lp-teal-border: #cde7e1;
+  --lp-border-color: #e5e9e8;
+  --lp-card-bg: #ffffff;
+  --lp-active-green: #059669;
+  --lp-locked-gray: #6b7280;
+}
+
+.loai-phong-container {
+  background-color: var(--lp-bg-page);
+  min-height: calc(100vh - 76px);
+  color: var(--lp-text-main);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Page Header & Navigation */
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  font-size: 0.92rem;
+  color: var(--lp-text-muted);
+}
+
+.breadcrumb-custom {
+  font-size: 0.86rem;
+  color: var(--lp-text-muted);
+}
+
+.btn-primary-teal {
+  background-color: var(--lp-teal-primary);
+  border-color: var(--lp-teal-primary);
+  color: #ffffff;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary-teal:hover,
+.btn-primary-teal:focus {
+  background-color: var(--lp-teal-hover);
+  border-color: var(--lp-teal-hover);
+  color: #ffffff;
+}
+
+/* Search and Filters Bar */
+.filter-card {
+  background: var(--lp-card-bg);
+  border: 1px solid var(--lp-border-color);
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.search-input-wrap {
+  position: relative;
+  flex: 1;
+}
+
+.search-input-wrap i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.search-input-wrap input {
+  padding-left: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--lp-border-color);
+  font-size: 0.9rem;
+  height: 40px;
+}
+
+.search-input-wrap input:focus {
+  border-color: var(--lp-teal-primary);
+  box-shadow: 0 0 0 3px rgba(13, 112, 101, 0.15);
+}
+
+.filter-select {
+  border-radius: 8px;
+  border: 1px solid var(--lp-border-color);
+  font-size: 0.88rem;
+  height: 40px;
+  background-color: #ffffff;
+  min-width: 140px;
+}
+
+/* Room Type Card (Left side) */
+.room-type-card {
+  background: var(--lp-card-bg);
+  border: 1px solid var(--lp-border-color);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  position: relative;
+}
+
+.room-type-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.room-type-card.card-selected {
+  border-color: var(--lp-teal-primary);
+  box-shadow: 0 0 0 2px rgba(13, 112, 101, 0.25);
+  background: #ffffff;
+}
+
+.card-room-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.card-room-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--lp-teal-primary);
+}
+
+.card-room-price span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.bed-icon-wrap {
+  font-size: 1.6rem;
+  color: var(--lp-teal-primary);
+  line-height: 1;
+}
+
+/* Status Badges */
+.badge-active-pill {
+  background-color: #e6f4ea;
+  color: #137333;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-locked-pill {
+  background-color: #f1f3f4;
+  color: #5f6368;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Card details table-like rows */
+.card-spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  font-size: 0.88rem;
+}
+
+.spec-label {
+  color: var(--lp-text-muted);
+}
+
+.spec-value {
+  font-weight: 500;
+  color: #1f2937;
+  text-align: right;
+}
+
+.btn-card-edit {
+  background-color: #ffffff;
+  border: 1px solid var(--lp-border-color);
+  color: #374151;
+  font-size: 0.86rem;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-card-edit:hover {
+  background-color: #f9fafb;
+  border-color: #cbd5e1;
+  color: #111827;
+}
+
+.btn-promo-edit {
+  background-color: #e6f4f1;
+  color: #0d7065;
+  border: 1px solid #cde7e1;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.btn-promo-edit:hover {
+  background-color: #0d7065;
+  color: #ffffff;
+  border-color: #0d7065;
+}
+
+.btn-promo-create {
+  background-color: #f8faf9;
+  color: #64748b;
+  border: 1px dashed #cbd5e1;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.btn-promo-create:hover {
+  background-color: #e6f4f1;
+  color: #0d7065;
+  border-style: solid;
+  border-color: #0d7065;
+}
+
+/* Form Panel (Right side) */
+.form-card {
+  background: var(--lp-card-bg);
+  border: 1px solid var(--lp-border-color);
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.form-heading-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.form-heading-sub {
+  font-size: 0.82rem;
+  color: var(--lp-text-muted);
+  margin-top: 2px;
+}
+
+.form-label-custom {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.form-control-custom {
+  border: 1px solid var(--lp-border-color);
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 0.9rem;
+  color: #1f2937;
+  background-color: #ffffff;
+}
+
+.form-control-custom[readonly] {
+  background-color: #f9fbfa;
+  color: #4b5563;
+}
+
+.form-control-custom:focus {
+  border-color: var(--lp-teal-primary);
+  box-shadow: 0 0 0 3px rgba(13, 112, 101, 0.15);
+}
+
+/* Amenities Checkboxes */
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 18px;
+}
+
+.amenity-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: #374151;
+  cursor: pointer;
+  user-select: none;
+}
+
+.amenity-checkbox-item input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  border-radius: 4px;
+  accent-color: var(--lp-teal-primary);
+  cursor: pointer;
+}
+
+/* Section Dividers */
+.form-section-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+/* Action Buttons */
+.btn-save-room {
+  background-color: var(--lp-teal-primary);
+  border-color: var(--lp-teal-primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 24px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-save-room:hover {
+  background-color: var(--lp-teal-hover);
+  color: #ffffff;
+}
+
+.btn-toggle-status {
+  background-color: #ffffff;
+  border: 1px solid var(--lp-border-color);
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-toggle-status:hover {
+  background-color: #f9fafb;
+  border-color: #cbd5e1;
+}

@@ -5,22 +5,27 @@
       <span class="text-secondary-custom">Phân hệ PMS</span>
       <i class="bi bi-chevron-right text-secondary-custom fs-7"></i>
       <span class="fw-bold text-main-dark text-truncate">
-        Tổng quan
-      </span>>
+        {{ currentTitle }}
+      </span>
       <div>
         <span
           class="d-none d-md-inline-flex px-2.5 py-1 rounded-pill text-uppercase fw-bold badge-role bg-light text-success border">
-          LỄ TÂN - CA TRỰC CHÍNH
+          {{ currentRole }}
         </span>
       </div>
     </div>
 
     <div class="d-flex align-items-center gap-3">
+      <!-- Ngày giờ thực tế -->
+      <div class="d-none d-lg-block text-secondary small fw-medium" style="font-size: 0.85rem;">
+        <i class="bi bi-calendar3 me-1"></i> {{ currentDateString }}
+      </div>
+
       <!-- Switch to Guest Portal -->
-      <button class="d-none d-sm-inline-flex align-items-center gap-2 px-3 py-2 rounded-xl btn-guest border-0">
+      <router-link to="/" class="d-none d-sm-inline-flex align-items-center gap-2 px-3 py-2 rounded-xl btn-guest border-0 text-decoration-none">
         <i class="bi bi-globe"></i>
         <span>Cổng khách hàng</span>
-      </button>
+      </router-link>
 
       <!-- Staff Profile Dropdown (Sử dụng cấu trúc click cơ bản hoặc tự binding tùy ý) -->
       <div class="dropdown">
@@ -98,7 +103,17 @@
 </template>
 <script>
 export default {
-
+  computed: {
+    currentTitle() {
+      return this.$route.meta?.title || 'Vận hành hằng ngày';
+    },
+    currentRole() {
+      return this.$route.meta?.role || 'LỄ TÂN - BUỒNG PHÒNG';
+    },
+    currentDateString() {
+      return 'Chủ nhật, 08 tháng 11, 2026';
+    }
+  }
 }
 </script>
 <style>

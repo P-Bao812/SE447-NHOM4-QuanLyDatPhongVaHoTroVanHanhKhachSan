@@ -6,7 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Chi_Tiet_Hoa_Don extends Model
 {
-    //
     protected $table = 'Chi_Tiet_Hoa_Don';
-    protected $fillable = ['maHoaDon', 'noiDung', 'soLuong', 'donGia', 'thanhTien'];
+
+    protected $fillable = [
+        'maHoaDon',
+        'noiDung',
+        'soLuong',
+        'donGia',
+        'thanhTien'
+    ];
+
+    public function hoaDon()
+    {
+        return $this->belongsTo(Hoa_Don::class, 'maHoaDon');
+    }
 }
