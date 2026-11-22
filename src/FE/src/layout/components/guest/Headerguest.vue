@@ -15,15 +15,25 @@
       </a>
 
       <!-- Menu Navigation -->
-      <nav class="d-none d-xl-flex align-items-center h-100 gap-4">
+      <nav class="d-none d-lg-flex align-items-center h-100 gap-4">
         <router-link to="/" class="nav-tab-item">
           <i class="bi bi-bed"></i>
           <span>Phòng nghỉ & Giá tốt</span>
         </router-link>
 
-        <router-link to="/tien-ich" class="nav-tab-item">
-          <i class="bi bi-stars"></i>
-          <span>Tiện ích & Trải nghiệm</span>
+        <router-link to="/buong-phong" class="nav-tab-item">
+          <i class="bi bi-card-checklist"></i>
+          <span>Buồng phòng</span>
+        </router-link>
+
+        <router-link to="/loai-phong" class="nav-tab-item">
+          <i class="bi bi-door-open"></i>
+          <span>Loại phòng</span>
+        </router-link>
+
+        <router-link to="/nhan-vien" class="nav-tab-item">
+          <i class="bi bi-people"></i>
+          <span>Nhân viên</span>
         </router-link>
 
         <router-link to="/services" class="nav-tab-item">
@@ -31,19 +41,25 @@
           <span>Dịch vụ phòng</span>
         </router-link>
 
-        <router-link to="/promotions" class="nav-tab-item">
-          <i class="bi bi-gift"></i>
-          <span>Ưu đãi & Điểm thưởng</span>
+        <router-link to="/yeu-cau-dich-vu" class="nav-tab-item">
+          <i class="bi bi-bell"></i>
+          <span>Yêu cầu dịch vụ</span>
         </router-link>
 
-        <router-link to="/reviews" class="nav-tab-item">
-          <i class="bi bi-star"></i>
-          <span>Đánh giá</span>
+        <router-link to="/khuyen-mai" class="nav-tab-item">
+          <i class="bi bi-gift"></i>
+          <span>Khuyến mãi</span>
         </router-link>
+
+        <router-link to="/minibar-tai-san" class="nav-tab-item">
+          <i class="bi bi-cup-straw"></i>
+          <span>Minibar & Tài sản</span>
+        </router-link>
+
       </nav>
 
-      <!-- Action Buttons (Đăng nhập & Đăng ký) -->
-      <div class="d-flex align-items-center gap-2">
+      <!-- Action Buttons & Avatar Profile (Hình 2: Avatar T màu tím) -->
+      <div class="d-flex align-items-center gap-3">
         <button class="btn btn-login d-flex align-items-center gap-2">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Đăng nhập</span>
@@ -52,6 +68,17 @@
           <i class="bi bi-person-plus"></i>
           <span>Đăng ký</span>
         </button>
+
+        <!-- Avatar T màu tím dẫn tới Tài khoản & Phân quyền như hình 2 -->
+        <router-link
+          to="/tai-khoan"
+          class="avatar-purple-btn text-decoration-none"
+          title="Tài khoản & phân quyền (Admin)"
+        >
+          <div class="avatar-purple-circle">
+            <span>T</span>
+          </div>
+        </router-link>
       </div>
     </div>
   </header>
@@ -182,5 +209,35 @@ export default {
   font-weight: 700;
   border-bottom-color: #1E5E49;
   text-decoration: none !important;
+}
+
+/* Avatar T màu tím như hình 2 */
+.avatar-purple-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.avatar-purple-btn:hover {
+  transform: scale(1.08);
+}
+
+.avatar-purple-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #6a0dad 0%, #4a0072 100%);
+  border: 2px solid #8e24aa;
+  box-shadow: 0 2px 8px rgba(106, 13, 173, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  user-select: none;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 </style>

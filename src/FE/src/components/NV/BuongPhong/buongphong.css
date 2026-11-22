@@ -1,0 +1,326 @@
+/* ========================================================
+   GIAO DIỆN QUẢN LÝ VẬN HÀNH BUỒNG PHÒNG - AN NHIÊN BOUTIQUE HOTEL
+   CSS tách riêng cho các component buồng phòng (buongphong.css)
+   ======================================================== */
+
+.buong-phong-container {
+  color: #1f2937;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  letter-spacing: -0.3px;
+}
+
+.text-teal {
+  color: #0f766e;
+}
+
+.btn-teal {
+  background-color: #0d7065;
+  border-color: #0d7065;
+}
+.btn-teal:hover {
+  background-color: #0b5c53;
+  border-color: #0b5c53;
+}
+
+.btn-outline-teal {
+  color: #0f766e;
+  border-color: #0f766e;
+}
+.btn-outline-teal:hover {
+  background-color: #0f766e;
+  color: #ffffff;
+}
+
+.btn-create-task {
+  background-color: #0d7065;
+  border-color: #0d7065;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.btn-create-task:hover {
+  background-color: #0b5c53;
+  border-color: #0b5c53;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-action-sm {
+  font-size: 0.85rem;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Metric Cards */
+.metric-card {
+  background-color: #ffffff;
+  border: 1px solid #e8eeec;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.icon-square-light {
+  width: 42px;
+  height: 42px;
+  background-color: #edf6f4;
+  color: #128274;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.progress-custom {
+  height: 7px;
+  background-color: #e9ecef;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.progress-bar-custom {
+  background-color: #0f766e;
+  border-radius: 20px;
+}
+
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #e5edea;
+  color: #1e3a34;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.avatar-sm {
+  width: 26px;
+  height: 26px;
+  font-size: 0.68rem;
+}
+
+/* Filter Pill */
+.filter-dropdown-btn {
+  background-color: #ffffff;
+  border: 1px solid #e2e8e6;
+  color: #374151;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+.filter-dropdown-btn:hover {
+  background-color: #f9fbfa;
+  border-color: #cbd5e1;
+}
+
+/* Custom Nav Pills */
+.custom-nav-pills .nav-link {
+  color: #4b5563;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+  transition: all 0.2s ease;
+}
+.custom-nav-pills .nav-link:hover {
+  background-color: #e5e7eb;
+}
+.custom-nav-pills .nav-link.active {
+  background-color: #0f766e;
+  color: #ffffff;
+}
+
+/* Kanban Columns & Task Cards */
+.kanban-column {
+  background-color: #edf2f0;
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 580px;
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.column-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-pending { background-color: #d97706; }
+.dot-doing { background-color: #2563eb; }
+.dot-done { background-color: #059669; }
+
+.count-badge {
+  background-color: rgba(0, 0, 0, 0.07);
+  color: #4b5563;
+  font-size: 0.75rem;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* Task Card */
+.task-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e2e8e5;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+  position: relative;
+}
+.task-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+  border-color: #cbd5e1;
+}
+
+.priority-badge-high {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.priority-badge-medium {
+  background-color: #fffbeb;
+  color: #b45309;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.priority-badge-low {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.progress-banner-info {
+  background-color: #f0f6ff;
+  color: #1e40af;
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Modal Backdrop */
+.custom-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 1060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.custom-modal-dialog {
+  width: 500px;
+  max-width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Guest Service Alerts & Notifications */
+.guest-service-alert-box {
+  background-color: #fffdf5;
+  border: 1.5px solid #f59e0b !important;
+  animation: fadeInDown 0.3s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert-icon-circle {
+  animation: pulseBell 2s infinite;
+}
+
+@keyframes pulseBell {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(245, 158, 11, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+.notify-dropdown-menu {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+  border-color: #e5e7eb !important;
+}
+
+.notify-item-card:hover {
+  background-color: #f0fdf4 !important;
+}

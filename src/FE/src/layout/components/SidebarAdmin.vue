@@ -31,44 +31,44 @@
     <!-- Menu điều hướng -->
     <div class="sidebar-menu">
       <div class="menu-category">Vận hành</div>
-      <a href="#" class="menu-item active">
+      <router-link to="/customer" class="menu-item" active-class="active">
         <i class="bi bi-grid-1x2"></i> Tổng quan
+      </router-link>
+      <router-link to="/buong-phong" class="menu-item" active-class="active">
+        <i class="bi bi-house-door"></i> Vận hành buồng phòng
+      </router-link>
+      <a href="#" class="menu-item" @click.prevent>
+        <i class="bi bi-calendar-check"></i> Quản lý đặt phòng
       </a>
-      <a href="#" class="menu-item">
-        <i class="bi bi-calendar-check"></i> Đặt phòng
+      <a href="#" class="menu-item" @click.prevent>
+        <i class="bi bi-map"></i> Tình trạng phòng
       </a>
-      <a href="#" class="menu-item">
-        <i class="bi bi-map"></i> Sơ đồ phòng
-      </a>
-      <a href="#" class="menu-item">
-        <i class="bi bi-house-door"></i> Buồng phòng
-      </a>
-      <a href="#" class="menu-item">
+      <a href="#" class="menu-item" @click.prevent>
         <i class="bi bi-arrow-left-right"></i> Nhận & trả phòng
       </a>
-      <a href="#" class="menu-item">
+      <router-link to="/yeu-cau-dich-vu" class="menu-item" active-class="active">
         <i class="bi bi-bell"></i> Yêu cầu dịch vụ
-      </a>
+      </router-link>
 
       <div class="menu-category mt-3">Kinh doanh</div>
-      <a href="#" class="menu-item">
+      <a href="#" class="menu-item" @click.prevent>
         <i class="bi bi-receipt"></i> Hóa đơn & thanh toán
       </a>
-      <a href="#" class="menu-item">
+      <a href="#" class="menu-item" @click.prevent>
         <i class="bi bi-people"></i> Khách hàng
       </a>
 
       <div class="menu-category mt-3">Quản trị</div>
-      <a href="#" class="menu-item">
+      <router-link to="/minibar-tai-san" class="menu-item" active-class="active">
         <i class="bi bi-box-seam"></i> Minibar & tài sản
-      </a>
+      </router-link>
     </div>
 
     <!-- Footer Sidebar: Nút mở cổng khách hàng & đăng xuất ca -->
     <div class="sidebar-footer">
-      <button class="btn btn-sidebar-action w-100 mb-2 text-start d-flex align-items-center gap-2">
+      <router-link to="/" class="btn btn-sidebar-action w-100 mb-2 text-start d-flex align-items-center gap-2 text-decoration-none">
         <i class="bi bi-globe"></i> Mở Cổng khách hàng
-      </button>
+      </router-link>
       <button class="btn btn-sidebar-danger w-100 text-start d-flex align-items-center gap-2">
         <i class="bi bi-box-arrow-right"></i> Đăng xuất ca trực
       </button>
