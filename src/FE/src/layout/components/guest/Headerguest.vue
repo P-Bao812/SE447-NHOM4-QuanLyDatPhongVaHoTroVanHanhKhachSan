@@ -21,6 +21,16 @@
           <span>Phòng nghỉ & Giá tốt</span>
         </router-link>
 
+        <router-link to="/booking" class="nav-tab-item">
+          <i class="bi bi-calendar-check"></i>
+          <span>Đặt phòng</span>
+        </router-link>
+
+        <router-link to="/my-bookings" class="nav-tab-item">
+          <i class="bi bi-journal-text"></i>
+          <span>Lịch sử đặt phòng</span>
+        </router-link>
+
         <router-link to="/tien-ich" class="nav-tab-item">
           <i class="bi bi-stars"></i>
           <span>Tiện ích & Trải nghiệm</span>
@@ -44,15 +54,18 @@
 
       <!-- Action Buttons (Đăng nhập & Đăng ký) -->
       <div class="d-flex align-items-center gap-2">
-        <router-link to="/dang-nhap" class=" router-link nav-tab-item"><button
-            class="btn btn-login d-flex align-items-center gap-2">
+        <router-link to="/dang-nhap" class="router-link nav-tab-item">
+          <button class="btn btn-login d-flex align-items-center gap-2">
             <i class="bi bi-box-arrow-in-right"></i>
             <span>Đăng nhập</span>
-          </button></router-link>
-        <button class="btn btn-register d-flex align-items-center gap-2">
-          <i class="bi bi-person-plus"></i>
-          <span>Đăng ký</span>
-        </button>
+          </button>
+        </router-link>
+        <router-link to="/dang-ky" class="router-link nav-tab-item">
+          <button class="btn btn-register d-flex align-items-center gap-2">
+            <i class="bi bi-person-plus"></i>
+            <span>Đăng ký</span>
+          </button>
+        </router-link>
       </div>
     </div>
   </header>

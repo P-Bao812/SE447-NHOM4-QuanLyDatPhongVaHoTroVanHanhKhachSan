@@ -86,9 +86,11 @@
             <hr class="dropdown-divider my-1">
           </li>
           <li>
-            <a class="dropdown-item rounded-3 py-2 text-danger d-flex align-items-center gap-2" href="#">
+            <a class="dropdown-item rounded-3 py-2 text-danger d-flex align-items-center gap-2" href="#"
+              @click="handleLogout">
               <i class="bi bi-box-arrow-right"></i>
               <span>Đăng xuất ca trực</span>
+
             </a>
           </li>
         </ul>
@@ -96,8 +98,13 @@
     </div>
   </header>
 </template>
-<script>
-export default {
+<script setup>
+
+const handleLogout = () => {
+  localStorage.removeItem('access_token')
+  localStorage.removeItem('user')
+  localStorage.removeItem('vaiTro')
+  router.push('/login')
 
 }
 </script>

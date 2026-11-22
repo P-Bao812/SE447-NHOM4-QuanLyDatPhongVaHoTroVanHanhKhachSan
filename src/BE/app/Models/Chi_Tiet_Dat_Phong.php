@@ -2,11 +2,63 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Chi_Tiet_Dat_Phong extends Model
 {
-    //
-    protected $table = 'Chi_Tiet_Dat_Phong';
-    protected $fillable = ['maDatPhong', 'maPhong', 'giaPhongApDung', 'soLuongKhach'];
+    use HasFactory;
+
+    /**
+     * Tên bảng trong CSDL (tuân thủ cdio4.sql).
+     *
+     * @var string
+     */
+    protected $table = 'chi_tiet_dat_phong';
+
+    /**
+     * Các trường được phép gán hàng loạt.
+     *
+     * @var list<string>
+     */
+    protected $fillable = [
+        'maDatPhong',
+        'maPhong',
+        'giaPhongApDung',
+        'soLuongKhach',
+    ];
+
+    /**
+     * Ép kiểu dữ liệu các thuộc tính.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'maDatPhong'     => 'integer',
+            'maPhong'        => 'integer',
+            'giaPhongApDung' => 'integer',
+            'soLuongKhach'   => 'integer',
+            'created_at'     => 'datetime',
+            'updated_at'     => 'datetime',
+        ];
+    }
+
+    /**
+     * Đơn đặt phòng gốc.
+     */
+    public function datPhong(): BelongsTo
+    {
+        return $this->belongsTo(Dat_Phong::class, 'maDatPhong', 'id');
+    }
+
+    /**
+     * Phòng vật lý được gán.
+     */
+    public function phong(): BelongsTo
+    {
+        return $this->belongsTo(Phong::class, 'maPhong', 'id');
+    }
 }

@@ -31,12 +31,18 @@
     <!-- Menu điều hướng -->
     <div class="sidebar-menu">
       <div class="menu-category">Vận hành</div>
-      <a href="#" class="menu-item active">
-        <i class="bi bi-grid-1x2"></i> Tổng quan
-      </a>
-      <a href="#" class="menu-item">
+      <router-link to="/receptionist/front-desk" class="menu-item">
+        <i class="bi bi-grid"></i> Tổng quan
+      </router-link>
+
+      <router-link to="/receptionist/booking" class="menu-item">
         <i class="bi bi-calendar-check"></i> Đặt phòng
-      </a>
+      </router-link>
+
+      <router-link to="/receptionist/cancellations" class="menu-item">
+        <i class="bi bi-calendar-x"></i> Theo dõi & Hủy phòng
+      </router-link>
+
       <a href="#" class="menu-item">
         <i class="bi bi-map"></i> Sơ đồ phòng
       </a>
@@ -93,6 +99,10 @@ export default {
   top: 0;
   overflow-y: auto;
   border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.router-link {
+  text-decoration: none
 }
 
 .sidebar-brand {
@@ -204,5 +214,34 @@ export default {
 .btn-sidebar-danger:hover {
   background-color: rgba(255, 75, 75, 0.1);
   color: #ff6b6b;
+}
+
+.sidebar a,
+.menu-item {
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #94a3b8;
+  transition: all 0.2s ease;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #f8fafc;
+}
+
+/* Tự động sáng lên khi đường dẫn trùng khớp với mục đang chọn */
+.menu-item.active,
+.menu-item.router-link-active,
+.menu-item.router-link-exact-active {
+  background-color: rgba(15, 118, 110, 0.25);
+  /* Nền Teal mờ giống ô Tổng quan */
+  color: #ffffff !important;
+  font-weight: 600;
+  border-left: 3px solid #0F766E;
+  /* Viền nhấn Teal đồng bộ design token */
 }
 </style>

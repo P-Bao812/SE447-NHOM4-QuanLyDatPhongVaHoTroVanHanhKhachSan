@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('Dat_Phong', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('maKhachHang');
-            $table->unsignedBigInteger('maNhanVien');
+            $table->unsignedBigInteger('maNhanVien')->nullable()->default(null);
             $table->dateTime('ngayDat');
             $table->dateTime('ngayNhanPhong');
             $table->dateTime('ngayTraPhong');

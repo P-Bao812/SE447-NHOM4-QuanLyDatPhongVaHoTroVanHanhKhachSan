@@ -48,6 +48,10 @@ return [
             'driver' => 'session',
             'provider' => 'tai_khoan',
         ],
+        'api' => [
+            'driver' => 'sanctum',
+            'provider' => 'tai_khoan',
+        ],
     ],
 
 
@@ -75,7 +79,7 @@ return [
         ],
         'tai_khoan' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', Tai_Khoan::class),
+            'model' => Tai_Khoan::class,
         ],
 
         // 'users' => [

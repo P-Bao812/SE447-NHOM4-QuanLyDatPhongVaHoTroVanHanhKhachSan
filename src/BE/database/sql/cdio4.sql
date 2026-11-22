@@ -134,7 +134,7 @@ DROP TABLE IF EXISTS `dat_phong`;
 CREATE TABLE `dat_phong`  (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `maKhachHang` bigint UNSIGNED NOT NULL,
-  `maNhanVien` bigint UNSIGNED NOT NULL,
+  `maNhanVien` bigint UNSIGNED NULL DEFAULT NULL,
   `ngayDat` datetime NOT NULL,
   `ngayNhanPhong` datetime NOT NULL,
   `ngayTraPhong` datetime NOT NULL,

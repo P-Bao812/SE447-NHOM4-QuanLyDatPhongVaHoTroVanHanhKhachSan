@@ -2,8 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class TaiKhoanLoginRequest extends FormRequest
 {
@@ -18,21 +19,34 @@ class TaiKhoanLoginRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, ValidationRule|array<mixed>|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
         return [
-            'tenDangNhap' => "required",
-            'password'    => "required|min:6|string"
+            'tenDangNhap' => 'required|string',
+            'password'    => 'required|string|min:6',
         ];
     }
+
     public function messages(): array
     {
         return [
-            "tenDangNhap.required" => "Tên đăng nhập không được để trống",
-            "password.retquired" => "Mật khẩu không được để trống",
-            "password.min:6" => "Mật khẩu không được dưới 6 ký tự",
+            'tenDangNhap.required' => 'Tên đăng nhập không được để trống.',
+            'tenDangNhap.string'   => 'Tên đăng nhập phải là chuỗi ký tự.',
+            'password.required'    => 'Mật khẩu không được để trống.',
+            'password.string'      => 'Mật khẩu phải là chuỗi ký tự.',
+            'password.min'         => 'Mật khẩu không được dưới 6 ký tự.',
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'success' => false,
+            'status'  => 422,
+            'message' => 'Dữ liệu gửi lên không hợp lệ.',
+            'errors'  => $validator->errors(),
+        ], 422));
     }
 }

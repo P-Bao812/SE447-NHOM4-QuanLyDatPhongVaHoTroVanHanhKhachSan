@@ -11,6 +11,7 @@ import router from './router'
 const app = createApp(App)
 app.component('nv-layout', Default)
 app.component('guest-layout', Guest)
+app.component('default-layout', Guest)
 app.use(createPinia())
 app.use(router)
 
