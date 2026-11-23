@@ -77,6 +77,12 @@
             <hr class="dropdown-divider my-1">
           </li>
           <li>
+            <router-link class="dropdown-item rounded-3 py-2 text-primary fw-semibold d-flex align-items-center gap-2" to="/profile">
+              <i class="bi bi-person-badge"></i>
+              <span>Hồ sơ cá nhân</span>
+            </router-link>
+          </li>
+          <li>
             <a class="dropdown-item rounded-3 py-2 text-success fw-semibold d-flex align-items-center gap-2" href="#">
               <i class="bi bi-globe"></i>
               <span>Mở Cổng khách hàng →</span>

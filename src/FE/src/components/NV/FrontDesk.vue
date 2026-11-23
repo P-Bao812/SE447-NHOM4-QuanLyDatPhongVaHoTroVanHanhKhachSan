@@ -23,6 +23,15 @@
         <p class="text-muted mb-0">Chào mừng bạn đến với ca trực. Hệ thống sẵn sàng tiếp nhận đặt phòng và
           check-in/check-out.</p>
         <div class="d-flex gap-2">
+          <router-link to="/receptionist/room-map" class="btn btn-teal text-white rounded-3 px-3 py-2 fw-semibold shadow-sm">
+            <i class="bi bi-map me-1"></i> Sơ đồ phòng
+          </router-link>
+          <router-link to="/receptionist/check-in-out" class="btn btn-warning text-dark rounded-3 px-3 py-2 fw-semibold shadow-sm">
+            <i class="bi bi-arrow-left-right me-1"></i> Nhận & Trả phòng (Check-in/out)
+          </router-link>
+          <router-link to="/receptionist/bookings" class="btn btn-navy text-white rounded-3 px-3 py-2 fw-semibold">
+            <i class="bi bi-journal-text me-1"></i> Quản lý đơn đặt phòng
+          </router-link>
           <router-link to="/receptionist/cancellations" class="btn btn-outline-navy rounded-3 px-3 py-2 fw-semibold">
             <i class="bi bi-calendar-x me-1"></i> Theo dõi & Xử lý hủy
           </router-link>
@@ -55,6 +64,16 @@ onMounted(() => {
 <style scoped>
 .text-navy {
   color: #1e3a5f;
+}
+
+.btn-navy {
+  background-color: #1e3a5f;
+  border-color: #1e3a5f;
+}
+
+.btn-navy:hover {
+  background-color: #162c47;
+  border-color: #162c47;
 }
 
 .btn-outline-navy {

@@ -61,4 +61,12 @@ class Hoa_Don extends Model
     {
         return $this->hasMany(Thanh_Toan::class, 'maHoaDon', 'id');
     }
+
+    /**
+     * Danh sách các khoản mục chi tiết trong hóa đơn.
+     */
+    public function chiTietHoaDons(): HasMany
+    {
+        return $this->hasMany(Chi_Tiet_Hoa_Don::class, 'maHoaDon', 'id');
+    }
 }

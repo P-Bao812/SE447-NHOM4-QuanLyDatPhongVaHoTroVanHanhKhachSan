@@ -52,28 +52,71 @@
         </router-link>
       </nav>
 
-      <!-- Action Buttons (Đăng nhập & Đăng ký) -->
+      <!-- Action Buttons (Đăng nhập, Đăng ký hoặc Hồ sơ khi đã đăng nhập) -->
       <div class="d-flex align-items-center gap-2">
-        <router-link to="/dang-nhap" class="router-link nav-tab-item">
-          <button class="btn btn-login d-flex align-items-center gap-2">
-            <i class="bi bi-box-arrow-in-right"></i>
-            <span>Đăng nhập</span>
+        <template v-if="hasToken">
+          <router-link to="/profile" class="text-decoration-none">
+            <button class="btn btn-outline-teal d-flex align-items-center gap-2 rounded-pill px-3 py-1.5 small fw-semibold">
+              <i class="bi bi-person-circle fs-6"></i>
+              <span>{{ userName }}</span>
+            </button>
+          </router-link>
+          <button class="btn btn-outline-danger btn-sm rounded-pill px-2.5 py-1.5" @click="handleLogout" title="Đăng xuất">
+            <i class="bi bi-box-arrow-right"></i>
           </button>
-        </router-link>
-        <router-link to="/dang-ky" class="router-link nav-tab-item">
-          <button class="btn btn-register d-flex align-items-center gap-2">
-            <i class="bi bi-person-plus"></i>
-            <span>Đăng ký</span>
-          </button>
-        </router-link>
+        </template>
+        <template v-else>
+          <router-link to="/dang-nhap" class="router-link nav-tab-item">
+            <button class="btn btn-login d-flex align-items-center gap-2">
+              <i class="bi bi-box-arrow-in-right"></i>
+              <span>Đăng nhập</span>
+            </button>
+          </router-link>
+          <router-link to="/dang-ky" class="router-link nav-tab-item">
+            <button class="btn btn-register d-flex align-items-center gap-2">
+              <i class="bi bi-person-plus"></i>
+              <span>Đăng ký</span>
+            </button>
+          </router-link>
+        </template>
       </div>
     </div>
   </header>
 </template>
-<script>
-export default {
+<script setup>
+import { ref, computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
+const hasToken = ref(!!localStorage.getItem('access_token'))
+const userName = ref('Hồ sơ')
+
+const syncUserState = () => {
+  hasToken.value = !!localStorage.getItem('access_token')
+  const userStr = localStorage.getItem('user')
+  if (userStr) {
+    try {
+      const u = JSON.parse(userStr)
+      userName.value = u.hoTen || u.tenDangNhap || 'Hồ sơ'
+    } catch {
+      userName.value = 'Hồ sơ'
+    }
+  } else {
+    userName.value = 'Hồ sơ'
+  }
 }
+
+const handleLogout = () => {
+  localStorage.removeItem('access_token')
+  localStorage.removeItem('user')
+  localStorage.removeItem('vaiTro')
+  syncUserState()
+  router.push('/dang-nhap')
+}
+
+onMounted(() => {
+  syncUserState()
+})
 </script>
 <style>
 .guest-header {

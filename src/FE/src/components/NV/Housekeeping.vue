@@ -20,7 +20,12 @@
           <span class="badge bg-warning text-dark">BUỒNG PHÒNG</span>
         </div>
       </div>
-      <p class="text-muted mb-0">Danh sách phòng cần dọn dẹp và kiểm tra trạng thái buồng phòng.</p>
+      <p class="text-muted mb-3">Danh sách phòng cần dọn dẹp và kiểm tra trạng thái buồng phòng.</p>
+      <div>
+        <router-link to="/housekeeping/room-map" class="btn btn-teal text-white rounded-3 px-3 py-2 fw-semibold">
+          <i class="bi bi-map me-1"></i> Xem Sơ đồ buồng phòng
+        </router-link>
+      </div>
     </div>
   </div>
 </template>

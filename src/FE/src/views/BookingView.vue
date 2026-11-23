@@ -403,7 +403,7 @@
                     class="card room-card h-100 rounded-3 border transition-all"
                     :class="{
                       'border-teal bg-teal-subtle-light shadow-sm selected': isRoomSelected(room.id),
-                      'opacity-50 cursor-not-allowed': room.trangThai === 'Bảo trì'
+                      'opacity-50 cursor-not-allowed bg-light': room.trangThai !== 'Sẵn sàng' || ['Đang bảo trì', 'Bảo trì', 'Ngưng khai thác'].includes(room.trangThai)
                     }"
                   >
                     <div class="card-body p-3">
@@ -419,7 +419,7 @@
                         </div>
                         <span
                           class="badge rounded-pill"
-                          :class="room.trangThai === 'Sẵn sàng' ? 'bg-success' : (room.trangThai === 'Bảo trì' ? 'bg-danger' : 'bg-warning text-dark')"
+                          :class="room.trangThai === 'Sẵn sàng' ? 'bg-success' : (['Đang bảo trì', 'Bảo trì'].includes(room.trangThai) ? 'bg-danger' : (room.trangThai === 'Ngưng khai thác' ? 'bg-secondary' : 'bg-warning text-dark'))"
                         >
                           {{ room.trangThai }}
                         </span>
@@ -441,7 +441,7 @@
                           <button
                             type="button"
                             class="btn btn-outline-teal btn-sm w-100 rounded-3"
-                            :disabled="room.trangThai === 'Bảo trì' || isSubmitting"
+                            :disabled="room.trangThai !== 'Sẵn sàng' || isSubmitting"
                             @click="toggleSelectRoom(room)"
                           >
                             <i class="bi bi-check-circle me-1"></i> Chọn phòng này
@@ -886,6 +886,9 @@ const getRoomSelection = (roomId) => {
 }
 
 const toggleSelectRoom = (room) => {
+  if (room.trangThai !== 'Sẵn sàng' && !isRoomSelected(room.id)) {
+    return
+  }
   if (isRoomSelected(room.id)) {
     delete form.danhSachPhongMap[room.id]
   } else {

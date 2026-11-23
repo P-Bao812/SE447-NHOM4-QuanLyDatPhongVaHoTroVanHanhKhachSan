@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Luu_Tru extends Model
@@ -60,5 +61,13 @@ class Luu_Tru extends Model
     public function hoaDon(): HasOne
     {
         return $this->hasOne(Hoa_Don::class, 'maLuuTru', 'id');
+    }
+
+    /**
+     * Các phiếu nhận và trả phòng phát sinh cho đợt lưu trú này.
+     */
+    public function phieuNhanTraPhongs(): HasMany
+    {
+        return $this->hasMany(Phieu_Nhan_Tra_Phong::class, 'maLuuTru', 'id');
     }
 }

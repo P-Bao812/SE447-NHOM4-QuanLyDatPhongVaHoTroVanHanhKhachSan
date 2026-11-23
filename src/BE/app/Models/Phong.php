@@ -60,4 +60,20 @@ class Phong extends Model
     {
         return $this->hasMany(Chi_Tiet_Dat_Phong::class, 'maPhong', 'id');
     }
+
+    /**
+     * Danh sách tài sản trang bị tại phòng này.
+     */
+    public function taiSan(): HasMany
+    {
+        return $this->hasMany(Tai_San::class, 'maPhong', 'id');
+    }
+
+    /**
+     * Danh sách phiếu buồng phòng của phòng này.
+     */
+    public function phieuBuongPhong(): HasMany
+    {
+        return $this->hasMany(Phieu_Buong_Phong::class, 'maPhong', 'id');
+    }
 }

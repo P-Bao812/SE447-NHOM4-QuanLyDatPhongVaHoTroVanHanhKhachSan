@@ -61,4 +61,20 @@ class Chi_Tiet_Dat_Phong extends Model
     {
         return $this->belongsTo(Phong::class, 'maPhong', 'id');
     }
+
+    /**
+     * Đợt lưu trú tương ứng.
+     */
+    public function luuTru()
+    {
+        return $this->hasOne(Luu_Tru::class, 'maChiTiet', 'id');
+    }
+
+    /**
+     * Danh sách các đợt lưu trú.
+     */
+    public function luuTrus()
+    {
+        return $this->hasMany(Luu_Tru::class, 'maChiTiet', 'id');
+    }
 }

@@ -39,16 +39,70 @@ const routes = [
     meta: { layout: 'nv', requiresAuth: true, role: 'Quản lý' },
   },
   {
+    path: '/admin/rooms',
+    name: 'AdminRooms',
+    component: () => import('../views/RoomManagementView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, role: 'Quản lý' },
+  },
+  {
+    path: '/admin/room-map',
+    name: 'AdminRoomMap',
+    component: () => import('../views/RoomMapView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Quản lý', 'Admin'] },
+  },
+  {
+    path: '/admin/services',
+    name: 'AdminServices',
+    component: () => import('../views/ServiceManagementView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, role: 'Quản lý' },
+  },
+  {
     path: '/admin/bookings',
     name: 'AdminBookings',
-    component: () => import('../components/guest/lich_su_dat_phong.vue'),
-    meta: { layout: 'nv', requiresAuth: true, role: 'Quản lý' },
+    component: () => import('../views/BookingManagementView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Quản lý', 'Lễ tân'] },
+  },
+  {
+    path: '/admin/invoices',
+    name: 'AdminInvoices',
+    component: () => import('../views/InvoiceManagementView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Quản lý', 'Lễ tân'] },
+  },
+  {
+    path: '/admin/customers',
+    name: 'AdminCustomers',
+    component: () => import('../views/CustomerManagementView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Quản lý', 'Lễ tân'] },
+  },
+  {
+    path: '/admin/check-in-out',
+    name: 'AdminCheckInOut',
+    component: () => import('../views/CheckInOutView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Quản lý', 'Lễ tân'] },
+  },
+  {
+    path: '/admin/reports',
+    name: 'AdminReports',
+    component: () => import('../views/DashboardView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Quản lý', 'Admin'] },
+  },
+  {
+    path: '/admin/profile',
+    name: 'AdminProfile',
+    component: () => import('../components/guest/ho_so_ca_nhan.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Quản lý', 'Admin'] },
+  },
+  {
+    path: '/reports',
+    name: 'Reports',
+    component: () => import('../views/DashboardView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Quản lý', 'Admin'] },
   },
   {
     path: '/customer',
     name: 'CustomerManagement',
-    component: () => import('../components/NV/index.vue'),
-    meta: { layout: 'nv', requiresAuth: true },
+    component: () => import('../views/CustomerManagementView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Quản lý', 'Lễ tân'] },
   },
 
   // 3. Phân hệ Lễ tân (Front Desk)
@@ -57,6 +111,24 @@ const routes = [
     name: 'ReceptionistFrontDesk',
     component: () => import('../components/NV/FrontDesk.vue'),
     meta: { layout: 'nv', requiresAuth: true, role: 'Lễ tân' },
+  },
+  {
+    path: '/receptionist/check-in-out',
+    name: 'ReceptionistCheckInOut',
+    component: () => import('../views/CheckInOutView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Lễ tân', 'Quản lý'] },
+  },
+  {
+    path: '/receptionist/room-map',
+    name: 'ReceptionistRoomMap',
+    component: () => import('../views/RoomMapView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Lễ tân', 'Quản lý'] },
+  },
+  {
+    path: '/receptionist/bookings',
+    name: 'ReceptionistBookings',
+    component: () => import('../views/BookingManagementView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Lễ tân', 'Quản lý'] },
   },
   {
     path: '/receptionist/booking',
@@ -70,6 +142,24 @@ const routes = [
     component: () => import('../components/guest/lich_su_dat_phong.vue'),
     meta: { layout: 'nv', requiresAuth: true, role: 'Lễ tân' },
   },
+  {
+    path: '/receptionist/invoices',
+    name: 'ReceptionistInvoices',
+    component: () => import('../views/InvoiceManagementView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Lễ tân', 'Quản lý'] },
+  },
+  {
+    path: '/receptionist/customers',
+    name: 'ReceptionistCustomers',
+    component: () => import('../views/CustomerManagementView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Lễ tân', 'Quản lý'] },
+  },
+  {
+    path: '/receptionist/profile',
+    name: 'ReceptionistProfile',
+    component: () => import('../components/guest/ho_so_ca_nhan.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Lễ tân', 'Quản lý'] },
+  },
 
   // 4. Phân hệ Buồng phòng (Housekeeping)
   {
@@ -77,6 +167,24 @@ const routes = [
     name: 'HousekeepingTasks',
     component: () => import('../components/NV/Housekeeping.vue'),
     meta: { layout: 'nv', requiresAuth: true, role: 'Buồng phòng' },
+  },
+  {
+    path: '/housekeeping/room-map',
+    name: 'HousekeepingRoomMap',
+    component: () => import('../views/RoomMapView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Buồng phòng', 'Quản lý'] },
+  },
+  {
+    path: '/housekeeping/profile',
+    name: 'HousekeepingProfile',
+    component: () => import('../components/guest/ho_so_ca_nhan.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Buồng phòng', 'Quản lý'] },
+  },
+  {
+    path: '/room-map',
+    name: 'RoomMap',
+    component: () => import('../views/RoomMapView.vue'),
+    meta: { layout: 'nv', requiresAuth: true, roles: ['Quản lý', 'Lễ tân', 'Buồng phòng'] },
   },
 
   // 5. Giao diện Cổng Khách hàng (Public)
@@ -156,9 +264,11 @@ router.beforeEach((to) => {
 
   try {
     const userStr = localStorage.getItem('user')
-    user = userStr ? JSON.parse(userStr) : null
+    if (userStr) {
+      user = JSON.parse(userStr)
+    }
   } catch {
-    user = null
+    // user = null
   }
 
   // 1. Kiểm tra route yêu cầu đăng nhập
@@ -184,16 +294,23 @@ router.beforeEach((to) => {
   }
 
   // 3. Kiểm tra phân quyền vai trò (Role-based Authorization)
-  if (to.meta.role && user) {
+  if ((to.meta.role || to.meta.roles) && user) {
     const userRole = (user.vaiTro || '').toLowerCase().trim()
-    const requiredRole = (to.meta.role || '').toLowerCase().trim()
 
     // Quản lý/Admin có quyền truy cập tất cả phân hệ quản trị
     if (userRole === 'quản lý' || userRole === 'admin') {
       return true
     }
 
-    if (userRole !== requiredRole) {
+    const allowedRoles = []
+    if (to.meta.role) {
+      allowedRoles.push((to.meta.role || '').toLowerCase().trim())
+    }
+    if (Array.isArray(to.meta.roles)) {
+      to.meta.roles.forEach((r) => allowedRoles.push((r || '').toLowerCase().trim()))
+    }
+
+    if (!allowedRoles.includes(userRole)) {
       // Chuyển hướng về trang nghiệp vụ đúng vai trò của họ
       if (userRole === 'lễ tân' || userRole === 'receptionist') {
         return '/receptionist/front-desk'

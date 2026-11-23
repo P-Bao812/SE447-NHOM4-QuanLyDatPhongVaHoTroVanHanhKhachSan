@@ -55,28 +55,44 @@
       <h5 class="fw-bold text-navy mb-3">Các phân hệ nghiệp vụ PMS</h5>
       <div class="row g-3">
         <div class="col-6 col-md-4 col-lg-3">
-          <div class="p-3 border rounded-3 text-center bg-light">
-            <i class="bi bi-calendar-check fs-2 text-teal"></i>
-            <div class="fw-semibold mt-2 small">Đặt phòng</div>
-          </div>
+          <router-link to="/admin/bookings" class="text-decoration-none">
+            <div class="p-3 border rounded-3 text-center bg-light text-navy hover-card">
+              <i class="bi bi-calendar-check fs-2 text-teal"></i>
+              <div class="fw-semibold mt-2 small">Quản lý Đặt phòng</div>
+            </div>
+          </router-link>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
-          <div class="p-3 border rounded-3 text-center bg-light">
-            <i class="bi bi-arrow-left-right fs-2 text-primary"></i>
-            <div class="fw-semibold mt-2 small">Nhận/Trả phòng</div>
-          </div>
+          <router-link to="/admin/reports" class="text-decoration-none">
+            <div class="p-3 border rounded-3 text-center bg-light text-navy hover-card">
+              <i class="bi bi-graph-up-arrow fs-2 text-danger"></i>
+              <div class="fw-semibold mt-2 small">Báo cáo & Thống kê</div>
+            </div>
+          </router-link>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
-          <div class="p-3 border rounded-3 text-center bg-light">
-            <i class="bi bi-door-closed fs-2 text-warning"></i>
-            <div class="fw-semibold mt-2 small">Sơ đồ phòng</div>
-          </div>
+          <router-link to="/admin/check-in-out" class="text-decoration-none">
+            <div class="p-3 border rounded-3 text-center bg-light text-navy hover-card">
+              <i class="bi bi-arrow-left-right fs-2 text-primary"></i>
+              <div class="fw-semibold mt-2 small">Nhận/Trả phòng</div>
+            </div>
+          </router-link>
         </div>
         <div class="col-6 col-md-4 col-lg-3">
-          <div class="p-3 border rounded-3 text-center bg-light">
-            <i class="bi bi-house-door fs-2 text-success"></i>
-            <div class="fw-semibold mt-2 small">Buồng phòng</div>
-          </div>
+          <router-link to="/admin/room-map" class="text-decoration-none">
+            <div class="p-3 border rounded-3 text-center bg-light text-navy hover-card">
+              <i class="bi bi-door-closed fs-2 text-warning"></i>
+              <div class="fw-semibold mt-2 small">Sơ đồ phòng</div>
+            </div>
+          </router-link>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <router-link to="/housekeeping/room-map" class="text-decoration-none">
+            <div class="p-3 border rounded-3 text-center bg-light text-navy hover-card">
+              <i class="bi bi-house-door fs-2 text-success"></i>
+              <div class="fw-semibold mt-2 small">Buồng phòng</div>
+            </div>
+          </router-link>
         </div>
       </div>
     </div>

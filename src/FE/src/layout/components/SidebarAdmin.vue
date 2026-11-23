@@ -35,36 +35,52 @@
         <i class="bi bi-grid"></i> Tổng quan
       </router-link>
 
+      <router-link to="/receptionist/bookings" class="menu-item">
+        <i class="bi bi-journal-text"></i> Quản lý đơn đặt
+      </router-link>
+
       <router-link to="/receptionist/booking" class="menu-item">
-        <i class="bi bi-calendar-check"></i> Đặt phòng
+        <i class="bi bi-calendar-check"></i> Đặt phòng mới
       </router-link>
 
       <router-link to="/receptionist/cancellations" class="menu-item">
         <i class="bi bi-calendar-x"></i> Theo dõi & Hủy phòng
       </router-link>
 
-      <a href="#" class="menu-item">
+      <router-link to="/receptionist/room-map" class="menu-item">
         <i class="bi bi-map"></i> Sơ đồ phòng
-      </a>
+      </router-link>
       <a href="#" class="menu-item">
         <i class="bi bi-house-door"></i> Buồng phòng
       </a>
-      <a href="#" class="menu-item">
+      <router-link to="/receptionist/check-in-out" class="menu-item">
         <i class="bi bi-arrow-left-right"></i> Nhận & trả phòng
-      </a>
+      </router-link>
       <a href="#" class="menu-item">
         <i class="bi bi-bell"></i> Yêu cầu dịch vụ
       </a>
 
       <div class="menu-category mt-3">Kinh doanh</div>
-      <a href="#" class="menu-item">
+      <router-link to="/receptionist/invoices" class="menu-item">
         <i class="bi bi-receipt"></i> Hóa đơn & thanh toán
-      </a>
-      <a href="#" class="menu-item">
+      </router-link>
+      <router-link to="/receptionist/customers" class="menu-item">
         <i class="bi bi-people"></i> Khách hàng
-      </a>
+      </router-link>
 
       <div class="menu-category mt-3">Quản trị</div>
+      <router-link to="/admin/reports" class="menu-item">
+        <i class="bi bi-graph-up-arrow"></i> Báo cáo & Thống kê
+      </router-link>
+      <router-link to="/admin/rooms" class="menu-item">
+        <i class="bi bi-door-open"></i> Quản lý phòng vật lý
+      </router-link>
+      <router-link to="/admin/services" class="menu-item">
+        <i class="bi bi-bell"></i> Danh mục dịch vụ
+      </router-link>
+      <router-link to="/profile" class="menu-item">
+        <i class="bi bi-person-badge"></i> Hồ sơ cá nhân
+      </router-link>
       <a href="#" class="menu-item">
         <i class="bi bi-box-seam"></i> Minibar & tài sản
       </a>

@@ -168,7 +168,7 @@ class Dat_PhongRequest extends FormRequest
                 $phong = $phongs[$maPhong];
 
                 // 1. Kiểm tra trạng thái phòng
-                if (in_array($phong->trangThai, ['Đang bảo trì', 'Ngừng kinh doanh'], true)) {
+                if (in_array($phong->trangThai, ['Đang bảo trì', 'Ngừng kinh doanh', 'Ngưng khai thác'], true)) {
                     $validator->errors()->add(
                         "danhSachPhong.{$index}.maPhong",
                         "Phòng {$phong->tenPhong} hiện đang bảo trì hoặc ngừng hoạt động."

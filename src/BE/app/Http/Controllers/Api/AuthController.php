@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\TaiKhoanDangKyRequest;
+use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Khach_Hang;
+use App\Models\Nhan_Vien;
 use App\Models\Tai_Khoan;
 use App\Traits\ApiResponseTrait;
 use Illuminate\Http\JsonResponse;
@@ -200,9 +202,112 @@ class AuthController extends Controller
                 'trangThai'   => $user->trangThai,
                 'vaiTro'      => $user->vaiTro,
                 'hoTen'       => $user->hoTen,
+                'email'       => $user->khachHang?->email,
+                'soDienThoai' => $user->khachHang?->soDienThoai ?? $user->nhanVien?->soDienThoai,
+                'diaChi'      => $user->khachHang?->diaChi,
                 'nhanVien'    => $user->nhanVien,
                 'khachHang'   => $user->khachHang,
             ],
         ], 'Lấy thông tin tài khoản thành công.', 200);
+    }
+
+    /**
+     * Cập nhật thông tin hồ sơ cá nhân của tài khoản đang đăng nhập (UC20 / UC04).
+     *
+     * @param UpdateProfileRequest $request
+     * @return JsonResponse
+     */
+    public function updateProfile(UpdateProfileRequest $request): JsonResponse
+    {
+        $user = $request->user();
+
+        if (!$user) {
+            return $this->errorResponse('Chưa xác thực danh tính.', 401);
+        }
+
+        DB::beginTransaction();
+        try {
+            $hoTen = $request->input('hoTen');
+            $soDienThoai = $request->input('soDienThoai');
+            $email = $request->input('email');
+            $diaChi = $request->input('diaChi');
+            $ngaySinh = $request->input('ngaySinh');
+
+            $isCustomer = ($user->vaiTro === 'Khách hàng') || $user->khachHang()->exists();
+
+            if ($isCustomer) {
+                $khachHang = $user->khachHang;
+                if ($khachHang) {
+                    $updateData = [
+                        'hoTen'       => $hoTen,
+                        'email'       => $email ?: $khachHang->email,
+                        'soDienThoai' => $soDienThoai,
+                    ];
+                    if ($request->has('diaChi')) {
+                        $updateData['diaChi'] = $diaChi ?: ($khachHang->diaChi ?: 'Chưa cập nhật');
+                    }
+                    $khachHang->update($updateData);
+                } else {
+                    $khachHang = Khach_Hang::create([
+                        'maTaiKhoan'  => $user->id,
+                        'hoTen'       => $hoTen,
+                        'cccd'        => $soDienThoai,
+                        'email'       => $email ?: ($user->tenDangNhap . '@example.com'),
+                        'soDienThoai' => $soDienThoai,
+                        'diaChi'      => $diaChi ?: 'Chưa cập nhật',
+                    ]);
+                }
+            } else {
+                // Tài khoản nhân viên (Quản lý, Lễ tân, Buồng phòng)
+                $nhanVien = $user->nhanVien;
+                if ($nhanVien) {
+                    $updateData = [
+                        'hoTen'       => $hoTen,
+                        'soDienThoai' => $soDienThoai,
+                    ];
+                    if ($request->filled('ngaySinh')) {
+                        $updateData['ngaySinh'] = $ngaySinh;
+                    }
+                    $nhanVien->update($updateData);
+                } else {
+                    $nhanVien = Nhan_Vien::create([
+                        'maTaiKhoan'  => $user->id,
+                        'hoTen'       => $hoTen,
+                        'ngaySinh'    => $ngaySinh ?: '1990-01-01',
+                        'cccd'        => $soDienThoai,
+                        'soDienThoai' => $soDienThoai,
+                        'chucVu'      => $user->vaiTro ?: 'Lễ tân',
+                        'trangThai'   => 'Đang làm',
+                    ]);
+                }
+            }
+
+            DB::commit();
+
+            // Nạp lại thông tin mới nhất
+            $user->load(['nhanVien', 'khachHang']);
+
+            return $this->successResponse([
+                'user' => [
+                    'id'          => $user->id,
+                    'tenDangNhap' => $user->tenDangNhap,
+                    'trangThai'   => $user->trangThai,
+                    'vaiTro'      => $user->vaiTro,
+                    'hoTen'       => $user->hoTen,
+                    'email'       => $user->khachHang?->email,
+                    'soDienThoai' => $user->khachHang?->soDienThoai ?? $user->nhanVien?->soDienThoai,
+                    'diaChi'      => $user->khachHang?->diaChi,
+                    'nhanVien'    => $user->nhanVien,
+                    'khachHang'   => $user->khachHang,
+                ],
+            ], 'Cập nhật hồ sơ cá nhân thành công.', 200);
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            Log::error('Lỗi khi cập nhật hồ sơ cá nhân (UC20): ' . $e->getMessage(), [
+                'exception' => $e,
+            ]);
+
+            return $this->errorResponse('Cập nhật hồ sơ không thành công do lỗi hệ thống. Vui lòng thử lại sau.', 500);
+        }
     }
 }

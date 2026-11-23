@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Khach_Hang extends Model
 {
+    use HasFactory;
+
     /**
      * Tên bảng trong CSDL (tuân thủ cdio4.sql).
      *
@@ -49,4 +53,13 @@ class Khach_Hang extends Model
     {
         return $this->belongsTo(Tai_Khoan::class, 'maTaiKhoan', 'id');
     }
+
+    /**
+     * Lịch sử các đơn đặt phòng của khách hàng.
+     */
+    public function datPhongs(): HasMany
+    {
+        return $this->hasMany(Dat_Phong::class, 'maKhachHang', 'id');
+    }
 }
+
